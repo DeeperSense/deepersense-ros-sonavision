@@ -7,7 +7,7 @@
   <arg name="checkpoint_path" default="$(find ros1_sonavision_inference)/tf/checkpoints/ckpt-23" />
 
   <!-- Start your ROS node with the loaded parameters -->
-  <node pkg="ros1_sonavision_inference" name="sonavision" type="Sonavision.py"
+  <node pkg="ros1_sonavision_inference" name="ros1_sonavision_inference" type="Sonavision.py"
     output="screen">
     <!-- Use parameters loaded from the XML file -->
     <param name="threshold" value="$(arg threshold)" />

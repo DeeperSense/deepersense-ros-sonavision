@@ -12,14 +12,7 @@ import numpy as np
 
 
 class Sonavision:
-    def __init__(
-        self,
-        # threshold=0.3,
-        # camera_topic="/usb_cam/image_raw",
-        # sonar_topic="/drawn_sonar_rect",
-        # model_path="../tf/models/",
-        # checkpoint_path="../tf/checkpoints/ckpt-23",
-    ):
+    def __init__(self):
         rospy.init_node("ros1_sonavision_inference")
         rospy.loginfo("Starting Sonavision as ros1_sonavision_inference.")
 
@@ -41,7 +34,6 @@ class Sonavision:
         self.darkness_level = 0.0
 
         self.cv_bridge = CvBridge()
-        self.raw_data_pub = rospy.Publisher("raw_data", Image, queue_size=10)
         self.inference_pub = rospy.Publisher("inference", Image, queue_size=10)
 
         self.camera_sub = Subscriber(_camera_topic, Image)
@@ -168,7 +160,6 @@ class Sonavision:
         out_img = cv2.hconcat(
             [
                 camera_cv_img_mono_cropped_darkened_blurred.astype(np.uint8),
-                sonar_cv_img_padded_rotated,
                 inferred_img,
             ]
         )
