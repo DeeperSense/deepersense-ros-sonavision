@@ -1,0 +1,18 @@
+<launch>
+
+  <arg name="threshold" default="0.3" />
+  <arg name="camera_topic" default="/drawn_sonar_rect" />
+  <arg name="model_path" default="$(find ros1_sonavision_inference)/tf/models" />
+  <arg name="checkpoint_path" default="$(find ros1_sonavision_inference)/checkpoints/ckpt-23" />
+
+  <!-- Start your ROS node with the loaded parameters -->
+  <node pkg="ros1_sonavision_inference" type="Sonavision.py"
+    output="screen">
+    <!-- Use parameters loaded from the XML file -->
+    <param name="threshold" value="$(arg threshold)" />
+    <param name="camera_topic" value="$(arg camera_topic)" />
+    <param name="model_path" value="$(arg model_path)" />
+    <param name="checkpoint_path" value="$(arg checkpoint_path)" />
+  </node>
+
+</launch>
