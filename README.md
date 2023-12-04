@@ -1,4 +1,4 @@
-# ros1_sonavision_inference
+# ros_sonavision_inference
 
 This package implements sonavision inference node, which listens for rectangular sonar image and stereo camera image (in stereo format).
 
