@@ -51,7 +51,7 @@ class Sonavision:
         rospy.loginfo("Checkpoint restored.")
 
         self.ts = ApproximateTimeSynchronizer(
-            [self.camera_sub, self.sonar_sub], queue_size=50, slop=self.threshold
+            [self.camera_sub, self.sonar_sub], queue_size=20, slop=self.threshold
         )
         self.ts.registerCallback(self.sync_callback)
 
@@ -88,10 +88,10 @@ class Sonavision:
 
     def sync_callback(self, camera_msg, sonar_msg):
         # Process data from both subscribers and combine them into a new  message MatchedSonarCameraImages
-        # rospy.loginfo(
-        #     "Received data from both subscribers. Processing and publishing combined data. frame_id: "
-        #     + str(self.frame_id_counter)
-        # )
+        rospy.loginfo(
+             "Received data from both subscribers. Processing and publishing combined data. frame_id: "
+            + str(self.frame_id_counter)
+        )
 
         self.frame_id_counter += 1
 
