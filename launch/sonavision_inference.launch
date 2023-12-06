@@ -2,7 +2,7 @@
 
   <arg name="threshold" default="0.3" />
   <arg name="camera_topic" default="/usb_cam/image_raw" />
-  <arg name="sonar_topic" default="/drawn_sonar_rect" />
+  <arg name="sonar_topic" default="/oculus/drawn_sonar_rect" />
   <arg name="model_path" default="$(find ros1_sonavision_inference)/tf/models" />
   <arg name="checkpoint_path" default="$(find ros1_sonavision_inference)/tf/checkpoints/ckpt-23" />
 
